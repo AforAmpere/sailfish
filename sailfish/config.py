@@ -288,6 +288,10 @@ class Sailfish:
                 raise ValueError("angular momentum fix only in cartesian coordinates")
             if self.domain.dimensionality != 2:
                 raise ValueError("angular momentum fix only in 2d")
+            if not self.strategy.cache_flux:
+                raise ValueError("angular momentum fix requires strategy.cache_flux")
+            if self.scheme.time_integration == "fwd":
+                raise ValueError("angular momentum fix requires rk time_integration")
 
 
 def parse_num_zones(arg):

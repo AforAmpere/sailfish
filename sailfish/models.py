@@ -194,11 +194,11 @@ def isothermal_vortex2d():
         "initial_data.model": "isothermal-vortex",
         "initial_data.mach_number": 1.5,
         "domain.num_zones": [200, 200, 1],
-        "domain.extent_i": [-5.0, 5.0],
-        "domain.extent_j": [-5.0, 5.0],
+        "domain.extent_i": [-10.0, 10.0],
+        "domain.extent_j": [-10.0, 10.0],
         "coordinates": "cartesian",
         "physics.viscosity": None,
-        "scheme.angular_momentum_fix": True
+        "scheme.angular_momentum_fix": True,
         #"physics.viscosity.nu": 0.2,
     }
 
