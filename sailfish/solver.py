@@ -1564,15 +1564,16 @@ class Scheme:
 
             double dl = 0.0;
             dl += xvp * f[0 * nd + nrcc + 2 * sq] - yc * f[0 * nd + nrcc + 1 * sq];
-            dl += xc * f[0 * nd + ncrc + 2 * sq] - yvp * f[0 * nd + ncrc + 1 * sq];
+            dl += xc * f[1 * nd + ncrc + 2 * sq] - yvp * f[1 * nd + ncrc + 1 * sq];
             dl -= xvm * f[0 * nd + nccc + 2 * sq] - yc * f[0 * nd + nccc + 1 * sq];
-            dl -= xc * f[0 * nd + nccc + 2 * sq] - yvm * f[0 * nd + nccc + 1 * sq];
+            dl -= xc * f[1 * nd + nccc + 2 * sq] - yvm * f[1 * nd + nccc + 1 * sq];
+            dl *= dt / dv[nccc / sf];
             l1 = l1 + dl;
             l2 = l0 * rk + (1 - rk) * l1;
             double r = sqrt(xc * xc + yc * yc);
             double p_phi = l2 / r;
             double p_r = xc / r * uc[1 * sq] + yc / r * uc[2 * sq];
-            if(r>0.2)
+            if(r>6.2)
             {
                 uc[1 * sq] = -yc / r * p_phi + xc / r * p_r;
                 uc[2 * sq] = xc / r * p_phi + yc / r * p_r;
